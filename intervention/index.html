@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script><meta name="generator" content="Astro v4.16.8"><title>Guichard TP · Zone d&#39;intervention</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="stylesheet" href="/_astro/index.DsvICSUF.css"><script type="module" src="/_astro/hoisted.2daoxv0f.js"></script>
+<script type="module" src="/_astro/page._Ma-rfcZ.js"></script></head> <body class="h-screen flex flex-col justify-between"> <nav class="bg-gray-800"> <div class="hidden lg:flex flex-row justify-around py-3"> <div class="flex flex-row space-x-6"> <img src="/assets/logo-minified.webp" alt="Guichard TP" loading="eager" width="32" height="32" decoding="async"> <a href="/" aria-current="false" class="rounded-md px-2 py-1 text-center
+    transition-colors duration-500 ease-in-out
+    aria-[current=page]:bg-gray-900
+    aria-[current=page]:text-white
+    aria-[current=false]:text-gray-300
+    aria-[current=false]:hover:bg-gray-700
+    aria-[current=false]:hover:text-white"> Accueil </a> <a href="/intervention" aria-current="false" class="rounded-md px-2 py-1 text-center
+    transition-colors duration-500 ease-in-out
+    aria-[current=page]:bg-gray-900
+    aria-[current=page]:text-white
+    aria-[current=false]:text-gray-300
+    aria-[current=false]:hover:bg-gray-700
+    aria-[current=false]:hover:text-white"> Zone d&#39;intervention </a> </div> <div class="flex flex-row"></div> </div> <div class="flex flex-col lg:hidden py-4 space-y-4" x-data="{ isOpen: false }"> <div class="flex flex-row justify-center items-center"> <p>l</p> <img src="/assets/logo-full.webp" alt="Guichard TP" width="200" height="40" loading="lazy" decoding="async"> <div class="pl-16"> <svg x-on:click="isOpen = !isOpen" class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14"> <path stroke="#d1d5db" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path> </svg> </div> </div> <div x-show="isOpen" class="flex flex-col justify-center"> <a href="/" aria-current="false" class="rounded-md px-2 py-1 text-center
+    transition-colors duration-500 ease-in-out
+    aria-[current=page]:bg-gray-900
+    aria-[current=page]:text-white
+    aria-[current=false]:text-gray-300
+    aria-[current=false]:hover:bg-gray-700
+    aria-[current=false]:hover:text-white"> Accueil </a> <a href="/intervention" aria-current="false" class="rounded-md px-2 py-1 text-center
+    transition-colors duration-500 ease-in-out
+    aria-[current=page]:bg-gray-900
+    aria-[current=page]:text-white
+    aria-[current=false]:text-gray-300
+    aria-[current=false]:hover:bg-gray-700
+    aria-[current=false]:hover:text-white"> Zone d&#39;intervention </a> </div> </div> </nav>  <div class="flex flex-grow"> <div id="map" class="h-auto flex flex-grow"></div> </div>  <footer class="space-y-2 py-4"> <div class="flex justify-center items-center space-x-1 lg:space-x-6"> <a class="text-blue-400 hover:text-blue-600 transition-colors duration-500 ease-in-out" href="https://www.facebook.com/guichard.tp/" target="_blank" rel="noopener noreferrer" aria-label="facebook"> <svg class="h-12 lg:h-12" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path> </svg> </a> <div class="text-xs lg:text-base text-center space-y-1 text-gray-400"> <p>© 2024 SARL Guichard TP. Tous droits réservés.</p> <a class="text-gray-400 hover:text-gray-900 transition-colors duration-500 ease-in-out" href="/legal">
+Mentions légales
+</a> </div> </div> </footer> </body></html> <script data-astro-rerun>
+  /* global L */
+
+  var map = L.map("map").setView([49.647296, 4.250643], window.innerHeight <= 768 ? 8 : 9);
+
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  L.circle([49.647296, 4.250643], {
+    color: "yellow",
+    fillColor: "#fcba03",
+    fillOpacity: 0.5,
+    radius: 100000
+  }).addTo(map);
+
+  L.popup({ closeOnClick: false })
+    .setLatLng([49.647296, 4.250643])
+    .setContent("<b>Guichard TP</b><br>Zone d'intervention")
+    .openOn(map);
+</script>
